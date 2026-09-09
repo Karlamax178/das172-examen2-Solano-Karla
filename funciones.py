@@ -67,14 +67,14 @@ def balance_simetria(carga, tol_desbalance):
   peso_longitudinales = []
   for fila in cargas:
     suma_fila = sum(fila)
-    pesos_longitudinales.append(suma_fila)
+    peso_longitudinales.append(suma_fila)
 
   mitad_col = m_col//2
   suma_izq = 0.0
   suma_der = 0.0
 
   for fila in cargas:
-    for j in ranfe (0, mitad_col):
+    for j in range (0, mitad_col):
       suma_izq += fila[j]
     inicio_der = mitad_col if (m_col % 2==0) else mitad_col +1
     for j in range (inicio_der, m_col):
@@ -82,7 +82,7 @@ def balance_simetria(carga, tol_desbalance):
 
   desbalance_lateral = abs(suma_izq - suma_der)
   esta_balanceado = desbalance_lateral <= tol_desbalance
-  return pesos_longitudinales, desbalance_lateral, esta_balanceado
+  return peso_longitudinales, desbalance_lateral, esta_balanceado
 
 
 

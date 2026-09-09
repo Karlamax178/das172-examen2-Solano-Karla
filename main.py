@@ -22,6 +22,20 @@ if es_valida:
   for fila in porcentajes:
     print (" ", fila)
 
+
+# Cargas de prueba (2 filas x 3 columnas -> impar)
+cargas_ejemplo = [
+    [100.0, 250.0, 200.0],  
+    [50.0,  300.0, 120.0]   
+]
+
+tolerancia = 100.0  # Tolerancia máxima permitida en kg
+longitudinales, desbalance, balanceado = balance_simetria(cargas_ejemplo, tolerancia)
+
+print("--- RESULTADOS MÓDULO 3 ---")
+print("Pesos longitudinales (por fila):", longitudinales) 
+print(f"Desbalance lateral: {desbalance} kg")             
+print("¿Está dentro de la tolerancia?:", balanceado)
   print("\n3. Celdas que tienen una sobrecarga peligrosa (>100%):")
   print("   Coordenadas (Fila, Columna):", sobrecargas)
 

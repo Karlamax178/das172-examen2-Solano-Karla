@@ -107,14 +107,13 @@ def ext_submatriz_critica(matris_porcentajes, k, p):
           valor=matris_porcentajes [r+i][c+j]
           fila_sub.append(valor)
           suma_porcentajes += valor
-        subamtriz_actual.append(fila_sub)
+        submatriz_actual.append(fila_sub)
 
       promedio_actual = suma_porcentajes/(k*p)
-      if promedio_actual > max_promedio:
-        max_promedio = promedio_actual
+      if promedio_actual > max_prom:
+        max_prom = promedio_actual
         submatriz_critica = submatriz_actual
     return submatriz_critica
       
-
 
 

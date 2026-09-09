@@ -84,5 +84,37 @@ def balance_simetria(carga, tol_desbalance):
   esta_balanceado = desbalance_lateral <= tol_desbalance
   return peso_longitudinales, desbalance_lateral, esta_balanceado
 
+#4. MÓDULO DE EXTRACCIÓN DE SUBMATRIZ DE SOBRECARGA CRÍTICAP
+
+def ext_submatriz_critica(matris_porcentajes, k, p):
+  n_fil = len(matris_porcentajes)
+  m_col = len(matris_porcentajes[0])
+
+  if k > n_fil or p > m_col:
+    return []
+
+  max_prom = -1.0
+  submatriz_critica =[]
+
+  for r in range (n_fil - k +1):
+    for c in range (m_col - p +1):
+      submatriz_actual=[]
+      suma_porcentajes = 0.0
+
+      for i in range (k):
+        fila_sub = []
+        for j in range (p):
+          valor=matris_porcentajes [r+i][c+j]
+          fila_sub.append(valor)
+          suma_porcentajes += valor
+        subamtriz_actual.append(fila_sub)
+
+      promedio_actual = suma_porcentajes/(k*p)
+      if promedio_actual > max_promedio:
+        max_promedio = promedio_actual
+        submatriz_critica = submatriz_actual
+    return submatriz_critica
+      
+
 
 

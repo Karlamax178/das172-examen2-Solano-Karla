@@ -36,6 +36,22 @@ print("--- RESULTADOS MÓDULO 3 ---")
 print("Pesos longitudinales (por fila):", longitudinales) 
 print(f"Desbalance lateral: {desbalance} kg")             
 print("¿Está dentro de la tolerancia?:", balanceado)
+
+
+# Matriz de porcentajes de ejemplo (2 filas x 3 columnas)
+porcentajes_prueba = [
+    [50.0, 125.0, 100.0],
+    [50.0, 120.0,  80.0]
+]
+
+k = 2  # 2 filas
+p = 2  # 2 columnas
+
+submatriz = ext_submatriz_critica(porcentajes_prueba, k, p)
+
+print("--- SUBMATRIZ CRÍTICA EXTRAÍDA (2x2) ---")
+for fila in submatriz:
+    print(fila)
   print("\n3. Celdas que tienen una sobrecarga peligrosa (>100%):")
   print("   Coordenadas (Fila, Columna):", sobrecargas)
 

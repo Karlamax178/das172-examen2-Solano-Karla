@@ -10,7 +10,7 @@ def matrices (cargas, capacidades):
   #Verificaré que tenga las dimenciones mínimas  de la matriz según el problema (N>=2)
 
   if n_carga_filas < 2 or n_carga_filas != n_capacidad_filas:
-    retunr False
+    return False
 
   m_carga_col = len (cargas [0])
   m_capacidad_col = len(capacidades [0])
@@ -25,16 +25,14 @@ def matrices (cargas, capacidades):
 
   #Ahora validando los valores de la matriz que es de capacidades
   for fila in capacidades:
-    if len(Fila) != m_capacidad_col:
-      retunr False
+    if len(fila) != m_capacidad_col:
+      return False
     for capacidad in fila: 
       if capacidad <=0:
         return False 
 
   return True
   
-
-
 #2. MÓDULO DE CÁLCULO DE OCUPACIÓN Y DETECCIÓN DE SOBRECARGA
 def ocupacion_sobrecarga (cargas, capacidades):
   lista_sobrecargas = []
@@ -50,15 +48,14 @@ def ocupacion_sobrecarga (cargas, capacidades):
       cap_max = capacidades [i][j]
 
       porcentaje = (pesoreal / cap_max) * 100.0
-      fila_pocentajes.append(porcentaje)
+      fila_porcentajes.append(porcentaje)
 
       if porcentaje > 100.0:
         lista_sobrecargas.append((i, j))
 
   matris_porcentajes.append(fila_porcentajes)
 
-return matris_porcentajes, lista_sobrecargas
-
+  return matris_porcentajes, lista_sobrecargas
 
 
 

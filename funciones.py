@@ -1,3 +1,5 @@
+#1. MÓDULO DE  VALIDACIÓN Y COHERENCIA DIMENSIONAL
+
 #Primero voy a definir la función martices de carga
 def matrices (cargas, capacidades):
   if not cargas or not capacidades:
@@ -31,4 +33,32 @@ def matrices (cargas, capacidades):
 
   return True
   
-  
+
+
+#2. MÓDULO DE CÁLCULO DE OCUPACIÓN Y DETECCIÓN DE SOBRECARGA
+def ocupacion_sobrecarga (cargas, capacidades):
+  lista_sobrecargas = []
+  matris_porcentajes = []
+  n_fil = len(cargas)
+  m_col = len(cargas[0])
+
+  #Recorriendo la matríz fila por fila
+  for i in range(n_fil):
+    fila_porcentajes = []
+    for j in range (m_col):
+      pesoreal = cargas [i][j]
+      cap_max = capacidades [i][j]
+
+      porcentaje = (pesoreal / cap_max) * 100.0
+      fila_pocentajes.append(porcentaje)
+
+      if porcentaje > 100.0:
+        lista_sobrecargas.append((i, j))
+
+  matris_porcentajes.append(fila_porcentajes)
+
+return matris_porcentajes, lista_sobrecargas
+
+
+
+

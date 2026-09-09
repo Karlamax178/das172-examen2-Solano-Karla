@@ -57,5 +57,32 @@ def ocupacion_sobrecarga (cargas, capacidades):
 
   return matris_porcentajes, lista_sobrecargas
 
+#3. MÓDULO DE EVALUACIÓN DE SIMETRIA Y BALANCE
+#Ahora calculare el peso total por fila, el desbalance latera y si la distribución 
+#del peso esta equilibrada correctamente
+def balance_simetria(carga, tol_desbalance):
+  n_fil = len(cargas)
+  m_col = len(cargas[0])
+
+  peso_longitudinales = []
+  for fila in cargas:
+    suma_fila = sum(fila)
+    pesos_longitudinales.append(suma_fila)
+
+  mitad_col = m_col//2
+  suma_izq = 0.0
+  suma_der = 0.0
+
+  for fila in cargas:
+    for j in ranfe (0, mitad_col):
+      suma_izq += fila[j]
+    inicio_der = mitad_col if (m_col % 2==0) else mitad_col +1
+    for j in range (inicio_der, m_col):
+      suma_der += fila[j]
+
+  desbalance_lateral = abs(suma_izq - suma_der)
+  esta_balanceado = desbalance_lateral <= tol_desbalance
+  return pesos_longitudinales, desbalance_lateral, esta_balanceado
+
 
 

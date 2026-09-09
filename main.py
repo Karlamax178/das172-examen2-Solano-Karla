@@ -49,7 +49,7 @@ p = 2  # 2 columnas
 
 submatriz = ext_submatriz_critica(porcentajes_prueba, k, p)
 
-print("--- SUBMATRIZ CRÍTICA EXTRAÍDA (2x2) ---")
+print("---SUBMATRIZ CRÍTICA EXTRAÍDA---")
 for fila in submatriz:
     print(fila)
   print("\n3. Celdas que tienen una sobrecarga peligrosa (>100%):")
